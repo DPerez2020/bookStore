@@ -2,7 +2,7 @@ import { ConfigService } from './../config/config.service';
 import { ConfigModule } from './../config/config.module';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConnectionOptions } from 'TypeOrm';
-import { Configuration } from 'src/config/config.keys';
+import { Configuration } from '../config/config.keys';
 
 export const databaseProviders=[
     TypeOrmModule.forRootAsync({
