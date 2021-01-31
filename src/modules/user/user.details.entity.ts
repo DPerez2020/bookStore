@@ -11,8 +11,8 @@ export class UserDetail extends BaseEntity{
     @Column({type:'varchar',nullable:true,length:50})
     lastname:string
 
-    @Column({type:'bit',nullable:false,default:true})
-    status:boolean
+    @Column({type:'bit',nullable:false,default:1})
+    status:number
 
     @Column({type:'timestamp',name:'created_at'})
     createdAd:Date

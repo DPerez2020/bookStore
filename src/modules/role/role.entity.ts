@@ -18,7 +18,7 @@ export class Role extends BaseEntity{
     users:User[]
 
     @Column({type:'bit',nullable:false,default:1})
-    status:boolean
+    status:number
 
     @Column({type:'timestamp',name:'created_at'})
     createdAd:Date
