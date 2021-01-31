@@ -1,5 +1,6 @@
-import { timeStamp } from "console";
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { UserDetail } from './user.details.entity';
+import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Role } from '../role/role.entity';
 
 @Entity('users')
 export class User extends BaseEntity{
@@ -14,6 +15,14 @@ export class User extends BaseEntity{
 
     @Column({type:'varchar',nullable:false})
     password:string
+
+    @OneToOne(type=>UserDetail,{cascade:true,nullable:false,eager:true})
+    @JoinColumn({name:"detail_id"})
+    detail:UserDetail
+
+    @ManyToMany(type=>Role,role=>role.users)
+    @JoinColumn()
+    roles:Role[]
 
     @Column({type:'bit',nullable:false,default:1})
     status:boolean
