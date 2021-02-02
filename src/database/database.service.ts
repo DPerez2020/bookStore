@@ -1,7 +1,7 @@
 import { ConfigService } from './../config/config.service';
 import { ConfigModule } from './../config/config.module';
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ConnectionOptions } from 'TypeOrm';
+// import { ConnectionOptions } from 'TypeOrm';
 import { Configuration } from '../config/config.keys';
 
 export const databaseProviders=[
@@ -18,7 +18,8 @@ export const databaseProviders=[
                 password:config.get(Configuration.PASSWORD),
                 entities:[__dirname+'/../**/*.entity{.ts,.js}'],
                 migrations:[__dirname+'/migrations/*{.ts,.js}']
-            } as ConnectionOptions
+            }
+            //  as ConnectionOptions
         }
     })
 ]
