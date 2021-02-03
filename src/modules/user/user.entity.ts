@@ -1,5 +1,5 @@
 import { UserDetail } from './user.details.entity';
-import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Role } from '../role/role.entity';
 
 @Entity('users')
@@ -27,10 +27,10 @@ export class User extends BaseEntity{
     @Column({type:'bit',nullable:false,default:1})
     status:number
 
-    @Column({type:'timestamp',name:'created_at'})
+    @CreateDateColumn({type:'timestamp',name:'created_at'})
     createdAd:Date
 
-    @Column({type:'timestamp',name:'update_at'})
+    @UpdateDateColumn({type:'timestamp',name:'update_at'})
     updateAt:Date
 
 }
